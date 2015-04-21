@@ -1,0 +1,16 @@
+parameters:
+    api.controller.users.class: ApiBundle\Controller\UsersController
+
+services:
+    api.controller.users:
+        class: %api.controller.users.class%
+        arguments:
+            - @serializer
+            - @api.repository.users
+
+    api.repository.users:
+        class: AppBundle\Entity\Repository\UserRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:User

@@ -2,22 +2,41 @@
 
 namespace ApiBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\Repository\UserRepository;
+use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @Route("/users")
- */
 class UsersController extends Controller
 {
     /**
-     * @Route("/", name="api_users_get")
-     * @Method("GET")
+     * @var SerializerInterface
      */
+    private $serializer;
+
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    /**
+     * @param SerializerInterface $serializer
+     * @param UserRepository $userRepository
+     */
+    public function __construct(SerializerInterface $serializer, UserRepository $userRepository)
+    {
+        $this->serializer = $serializer;
+        $this->userRepository = $userRepository;
+    }
+
     public function getUsersAction()
     {
-        var_dump('here I am!');
-        exit;
+        $users = $this->userRepository->findAll();
+
+        return new Response(
+            $this->serializer->serialize($users, 'json'),
+            200,
+            ['Content-Type' => 'application/json']
+        );
     }
 }
