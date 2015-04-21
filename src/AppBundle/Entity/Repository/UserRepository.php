@@ -16,4 +16,13 @@ class UserRepository extends EntityRepository
     {
         return parent::findAll();
     }
+
+    /**
+     * @param int $id
+     * @return User|null
+     */
+    public function findOneById($id)
+    {
+        return $this->findOneBy(['id' => $id]);
+    }
 }
