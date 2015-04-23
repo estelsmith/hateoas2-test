@@ -1,5 +1,6 @@
 parameters:
     api.controller.users.class: ApiBundle\Controller\UsersController
+    api.serializer.json_api.class: ApiBundle\Serializer\JsonApiSerializer
 
 services:
     api.controller.users:
@@ -14,3 +15,6 @@ services:
         factory_method: getRepository
         arguments:
             - AppBundle:User
+
+    api.serializer.json_api:
+        class: %api.serializer.json_api.class%
