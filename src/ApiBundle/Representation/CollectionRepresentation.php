@@ -5,31 +5,31 @@ namespace ApiBundle\Representation;
 class CollectionRepresentation
 {
     /**
-     * @var string
-     */
-    private $resourceName;
-
-    /**
      * @var mixed
      */
     private $resources;
 
     /**
-     * @param string $resourceName
+     * @var string
+     */
+    private $route;
+
+    /**
+     * @param string $route
      * @param mixed $resources
      */
-    public function __construct($resourceName, $resources)
+    public function __construct($route, $resources)
     {
-        $this->resourceName = $resourceName;
+        $this->route = $route;
         $this->resources = $resources;
     }
 
     /**
      * @return string
      */
-    public function getResourceName()
+    public function getRoute()
     {
-        return $this->resourceName;
+        return $this->route;
     }
 
     /**
