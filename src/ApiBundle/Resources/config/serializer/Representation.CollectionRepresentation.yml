@@ -6,9 +6,6 @@ ApiBundle\Representation\CollectionRepresentation:
                 route: api_users_get_all
     exclusion_policy: ALL
     virtual_properties:
-        getResourceName:
-            serialized_name: type
-            type: string
         getResources:
             serialized_name: data
             type: array
