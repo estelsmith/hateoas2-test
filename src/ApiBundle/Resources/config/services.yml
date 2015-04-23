@@ -1,6 +1,7 @@
 parameters:
     api.controller.users.class: ApiBundle\Controller\UsersController
     api.serializer.json_api.class: ApiBundle\Serializer\JsonApiSerializer
+    api.serializer.subscriber.resource_type.class: ApiBundle\Serializer\Subscriber\ResourceTypeSubscriber
 
 services:
     api.controller.users:
@@ -18,3 +19,11 @@ services:
 
     api.serializer.json_api:
         class: %api.serializer.json_api.class%
+
+    api.serializer.subscriber.resource_type:
+        class: %api.serializer.subscriber.resource_type.class%
+        arguments:
+            -
+                AppBundle\Entity\User: users
+        tags:
+            - { name: jms_serializer.event_subscriber }
