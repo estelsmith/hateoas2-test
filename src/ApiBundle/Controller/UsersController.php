@@ -2,9 +2,9 @@
 
 namespace ApiBundle\Controller;
 
+use ApiBundle\Representation\CollectionRepresentation;
 use AppBundle\Entity\Repository\UserRepository;
 use AppBundle\Entity\User;
-use Hateoas\Representation\CollectionRepresentation;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,8 +43,8 @@ class UsersController extends Controller
     public function getUsersAction()
     {
         $users = new CollectionRepresentation(
-            $this->userRepository->findAll(),
-            'users'
+            'users',
+            $this->userRepository->findAll()
         );
 
         return new Response(
