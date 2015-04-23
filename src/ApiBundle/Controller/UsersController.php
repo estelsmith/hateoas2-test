@@ -34,7 +34,7 @@ class UsersController extends Controller
 
     public function getUserAction(User $user)
     {
-        $representation = new ResourceRepresentation('api_users_get_one', ['user' => $user->getId()], $user);
+        $representation = new ResourceRepresentation($user);
 
         return new Response(
             $this->serializer->serialize($representation, 'json'),
