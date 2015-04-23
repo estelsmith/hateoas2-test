@@ -3,6 +3,7 @@
 namespace ApiBundle\Controller;
 
 use ApiBundle\Representation\CollectionRepresentation;
+use ApiBundle\Representation\ResourceRepresentation;
 use AppBundle\Entity\Repository\UserRepository;
 use AppBundle\Entity\User;
 use JMS\Serializer\SerializerInterface;
@@ -33,8 +34,10 @@ class UsersController extends Controller
 
     public function getUserAction(User $user)
     {
+        $representation = new ResourceRepresentation('api_users_get_one', ['user' => $user->getId()], $user);
+
         return new Response(
-            $this->serializer->serialize($user, 'json'),
+            $this->serializer->serialize($representation, 'json'),
             200,
             ['Content-Type' => 'application/json']
         );

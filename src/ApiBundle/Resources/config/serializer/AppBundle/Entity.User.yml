@@ -1,11 +1,4 @@
 AppBundle\Entity\User:
-    relations:
-        -
-            rel: self
-            href:
-                route: api_users_get_one
-                parameters:
-                    user: expr(object.getId())
     exclusion_policy: ALL
     access_type: public_method
     properties:

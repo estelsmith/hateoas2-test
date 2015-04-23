@@ -1,0 +1,11 @@
+ApiBundle\Representation\ResourceRepresentation:
+    relations:
+        -
+            rel: self
+            href:
+                route: expr(object.getRoute())
+                parameters: expr(object.getParameters())
+    exclusion_policy: ALL
+    virtual_properties:
+        getResource:
+            serialized_name: data
