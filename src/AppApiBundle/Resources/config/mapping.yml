@@ -1,0 +1,13 @@
+mapping:
+    resource_types:
+        -
+            class: AppBundle\Entity\User
+            type: users
+
+    relations:
+        self:
+            -
+                class: AppBundle\Entity\User
+                route: app_users_get_one
+                parameters:
+                    user: expr(object.getId())
