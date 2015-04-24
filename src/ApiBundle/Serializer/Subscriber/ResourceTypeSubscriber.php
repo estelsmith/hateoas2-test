@@ -40,7 +40,7 @@ class ResourceTypeSubscriber implements EventSubscriberInterface
         if (array_key_exists($type, $registeredTypes)) {
             /** @var GenericSerializationVisitor $visitor */
             $visitor = $event->getVisitor();
-            $visitor->addData('type', $registeredTypes[$type]);
+            $visitor->addData('type', $registeredTypes[$type]['type']);
         }
     }
 }

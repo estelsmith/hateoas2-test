@@ -1,8 +1,6 @@
 parameters:
     api.serializer.json_api.class: ApiBundle\Serializer\JsonApiSerializer
     api.serializer.subscriber.resource_type.class: ApiBundle\Serializer\Subscriber\ResourceTypeSubscriber
-    api.serializer.mapping.resource_types: {}
-#        AppBundle\Entity\User: users
     api.serializer.mapping.links.self: {}
 #        AppBundle\Entity\User:
 #            route: api_users_get_one

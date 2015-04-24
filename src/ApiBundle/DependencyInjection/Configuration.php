@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->arrayNode('resource_types')
+                            ->useAttributeAsKey('class')
                             ->prototype('array')
                                 ->children()
                                     ->scalarNode('class')->end()
