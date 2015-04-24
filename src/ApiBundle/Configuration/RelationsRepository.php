@@ -37,6 +37,12 @@ class RelationsRepository extends BaseRelationsRepository
 
         $relations = parent::getRelations($object);
 
+        // Stop doctrine proxies from throwing off the original class name.
+        $doctrinePrefix = 'Proxies\__CG__\\';
+        if (strpos($class, $doctrinePrefix) === 0) {
+            $class = str_replace($doctrinePrefix, '', $class);
+        }
+
         if (array_key_exists($class, $selfRelationDefinitions)) {
             $relationDefinition = $selfRelationDefinitions[$class];
 
