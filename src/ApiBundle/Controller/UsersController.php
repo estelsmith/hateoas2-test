@@ -43,6 +43,17 @@ class UsersController extends Controller
         );
     }
 
+    public function getUserSchoolAction(User $user)
+    {
+        $representation = new ResourceRepresentation($user->getSchool());
+
+        return new Response(
+            $this->serializer->serialize($representation, 'json'),
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/json']
+        );
+    }
+
     public function getUsersAction()
     {
         $users = new CollectionRepresentation(

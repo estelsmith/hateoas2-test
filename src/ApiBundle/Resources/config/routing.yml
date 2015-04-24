@@ -1,3 +1,8 @@
+api_users_get_user_school:
+    path:     /users/{user}/links/school
+    methods:   [ GET ]
+    defaults: { _controller: api.controller.users:getUserSchoolAction }
+
 api_users_get_one:
     path:     /users/{user}
     methods:  [ GET ]
