@@ -5,6 +5,11 @@ namespace ApiBundle\Representation;
 class CollectionRepresentation
 {
     /**
+     * @var array
+     */
+    private $parameters;
+
+    /**
      * @var mixed
      */
     private $resources;
@@ -15,21 +20,23 @@ class CollectionRepresentation
     private $route;
 
     /**
+     * @param string $resources
      * @param string $route
-     * @param mixed $resources
+     * @param array $parameters
      */
-    public function __construct($route, $resources)
+    public function __construct($resources, $route, array $parameters = [])
     {
-        $this->route = $route;
         $this->resources = $resources;
+        $this->route = $route;
+        $this->parameters = $parameters;
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getRoute()
+    public function getParameters()
     {
-        return $this->route;
+        return $this->parameters;
     }
 
     /**
@@ -38,5 +45,13 @@ class CollectionRepresentation
     public function getResources()
     {
         return $this->resources;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoute()
+    {
+        return $this->route;
     }
 }

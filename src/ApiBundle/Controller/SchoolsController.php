@@ -46,8 +46,8 @@ class SchoolsController extends Controller
     public function getSchoolsAction()
     {
         $schools = new CollectionRepresentation(
-            'api_schools_get_all',
-            $this->schoolRepository->findAll()
+            $this->schoolRepository->findAll(),
+            'api_schools_get_all'
         );
 
         return new Response(

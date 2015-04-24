@@ -57,8 +57,8 @@ class UsersController extends Controller
     public function getUsersAction()
     {
         $users = new CollectionRepresentation(
-            'api_users_get_all',
-            $this->userRepository->findAll()
+            $this->userRepository->findAll(),
+            'api_users_get_all'
         );
 
         return new Response(
