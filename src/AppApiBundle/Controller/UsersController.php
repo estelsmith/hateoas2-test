@@ -34,4 +34,13 @@ class UsersController extends JsonApiController
     {
         return $this->createCollectionResponse($this->userRepository->findAll(), 'app_users_get_all');
     }
+
+    public function getRelatedSchoolAction(User $user)
+    {
+        return $this->createResourceResponse(
+            $user->getSchool(),
+            'app_users_get_related_school',
+            ['user' => $user->getId()]
+        );
+    }
 }

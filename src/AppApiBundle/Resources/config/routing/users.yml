@@ -7,3 +7,8 @@ app_users_get_all:
     path: /users/
     methods: [ GET ]
     defaults: { _controller: app.controller.users:getAllAction }
+
+app_users_get_related_school:
+    path: /users/{user}/links/school
+    methods: [ GET ]
+    defaults: { _controller: app.controller.users:getRelatedSchoolAction }

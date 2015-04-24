@@ -1,4 +1,11 @@
 AppBundle\Entity\User:
+    relations:
+        -
+            rel: school
+            href:
+                route: app_users_get_related_school
+                parameters:
+                    user: expr(object.getId())
     exclusion_policy: ALL
     properties:
         id:
