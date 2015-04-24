@@ -14,22 +14,30 @@ class LoadUserData implements FixtureInterface, OrderedFixtureInterface
         $users = [
             [
                 'username' => 'test1',
-                'password' => 'test1'
+                'password' => 'test1',
+                'school' => 'School 1'
             ],
             [
                 'username' => 'test2',
-                'password' => 'test2'
+                'password' => 'test2',
+                'school' => 'School 2'
             ],
             [
                 'username' => 'test3',
-                'password' => 'test3'
+                'password' => 'test3',
+                'school' => 'School 1'
             ]
         ];
+
+        $schoolRepository = $manager->getRepository('AppBundle:School');
 
         foreach ($users as $userData) {
             $user = (new User())
                 ->setUsername($userData['username'])
                 ->setPassword($userData['password'])
+                ->setSchool($schoolRepository->findOneBy([
+                    'name' => $userData['school']
+                ]))
             ;
 
             $manager->persist($user);
@@ -40,6 +48,6 @@ class LoadUserData implements FixtureInterface, OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 0;
+        return 1;
     }
 }

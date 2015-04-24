@@ -37,6 +37,13 @@ class User implements UserInterface
     private $roles = ['ROLE_USER'];
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\School", inversedBy="users", fetch="LAZY")
+     * @ORM\JoinColumn(name="school", referencedColumnName="id", nullable=false)
+     * @var School
+     */
+    private $school;
+
+    /**
      * @ORM\Column(name="username", type="string")
      * @var string
      */
@@ -102,6 +109,24 @@ class User implements UserInterface
     public function getSalt()
     {
         return null;
+    }
+
+    /**
+     * @return School
+     */
+    public function getSchool()
+    {
+        return $this->school;
+    }
+
+    /**
+     * @param School $school
+     * @return $this
+     */
+    public function setSchool(School $school)
+    {
+        $this->school = $school;
+        return $this;
     }
 
     /**
