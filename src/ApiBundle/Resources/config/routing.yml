@@ -7,3 +7,13 @@ api_users_get_all:
     path:     /users/
     methods:  [ GET ]
     defaults: { _controller: api.controller.users:getUsersAction }
+
+api_schools_get_one:
+    path:     /schools/{school}
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getSchoolAction }
+
+api_schools_get_all:
+    path:     /schools/
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getSchoolsAction }
