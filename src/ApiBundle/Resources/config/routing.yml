@@ -22,3 +22,8 @@ api_schools_get_all:
     path:     /schools/
     methods:  [ GET ]
     defaults: { _controller: api.controller.schools:getSchoolsAction }
+
+api_schools_get_school_users:
+    path:     /schools/{school}/links/users
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getUsersAction }

@@ -56,4 +56,19 @@ class SchoolsController extends Controller
             ['Content-Type' => 'application/json']
         );
     }
+
+    public function getUsersAction(School $school)
+    {
+        $users = new CollectionRepresentation(
+            $school->getUsers(),
+            'api_schools_get_school_users',
+            ['school' => $school->getId()]
+        );
+
+        return new Response(
+            $this->serializer->serialize($users, 'json'),
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/json']
+        );
+    }
 }
