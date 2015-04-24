@@ -1,47 +1,19 @@
 parameters:
-    api.controller.schools.class: ApiBundle\Controller\SchoolsController
-    api.controller.users.class: ApiBundle\Controller\UsersController
     api.serializer.json_api.class: ApiBundle\Serializer\JsonApiSerializer
     api.serializer.subscriber.resource_type.class: ApiBundle\Serializer\Subscriber\ResourceTypeSubscriber
-    api.serializer.mapping.resource_types: #TODO: Make resource types configurable.
-        AppBundle\Entity\User: users
-    api.serializer.mapping.links.self:
-        AppBundle\Entity\User:
-            route: api_users_get_one
-            parameters:
-                user: expr(object.getId())
-        AppBundle\Entity\School:
-            route: api_schools_get_one
-            parameters:
-                school: expr(object.getId())
+    api.serializer.mapping.resource_types: {}
+#        AppBundle\Entity\User: users
+    api.serializer.mapping.links.self: {}
+#        AppBundle\Entity\User:
+#            route: api_users_get_one
+#            parameters:
+#                user: expr(object.getId())
+#        AppBundle\Entity\School:
+#            route: api_schools_get_one
+#            parameters:
+#                school: expr(object.getId())
 
 services:
-    api.controller.schools:
-        class: %api.controller.schools.class%
-        arguments:
-            - @serializer
-            - @api.repository.schools
-
-    api.controller.users:
-        class: %api.controller.users.class%
-        arguments:
-            - @serializer
-            - @api.repository.users
-
-    api.repository.users:
-        class: AppBundle\Entity\Repository\UserRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
-        arguments:
-            - AppBundle:User
-
-    api.repository.schools:
-        class: AppBundle\Entity\Repository\SchoolRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
-        arguments:
-            - AppBundle:School
-
     api.serializer.json_api:
         class: %api.serializer.json_api.class%
 

@@ -1,0 +1,4 @@
+app_users_get_one:
+    path: /users/{user}
+    methods: [ GET ]
+    defaults: { _controller: app.controller.users:getOneAction }

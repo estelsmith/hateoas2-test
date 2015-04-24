@@ -12,7 +12,6 @@ class ApiBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(new SerializerMetadataCompilerPass());
         $container->addCompilerPass(new JsonApiSerializerCompilerPass());
         $container->addCompilerPass(new RelationsRepositoryCompilerPass());
     }

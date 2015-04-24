@@ -1,0 +1,8 @@
+parameters:
+    app.controller.users.class: AppApiBundle\Controller\UsersController
+
+services:
+    app.controller.users:
+        class: %app.controller.users.class%
+        arguments:
+            - @jms_serializer

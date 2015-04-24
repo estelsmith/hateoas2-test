@@ -1,5 +1,0 @@
-users:
-    resource: routing/users.yml
-
-schools:
-    resource: routing/schools.yml
