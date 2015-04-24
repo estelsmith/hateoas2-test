@@ -34,7 +34,7 @@ class Configuration implements ConfigurationInterface
                                     ->prototype('array')
                                         ->children()
                                             ->scalarNode('class')->end()
-                                            ->scalarNode('route')->end()
+                                            ->scalarNode('route')->isRequired()->end()
                                             ->arrayNode('parameters')
                                                 ->prototype('scalar')->end()
                                             ->end()
