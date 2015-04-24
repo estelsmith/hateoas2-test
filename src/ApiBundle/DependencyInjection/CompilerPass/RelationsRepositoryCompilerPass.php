@@ -13,6 +13,6 @@ class RelationsRepositoryCompilerPass implements CompilerPassInterface
         $container->setParameter('hateoas.configuration.relations_repository.class', RelationsRepository::class);
 
         $definition = $container->getDefinition('hateoas.configuration.relations_repository');
-        $definition->addArgument($container->getParameter('api.serializer.mapping.links.self'));
+        $definition->addArgument($container->getParameter('api.serializer.mapping.relations.self'));
     }
 }

@@ -19,6 +19,6 @@ class ApiExtension extends Extension
         $fileLoader->load('services.yml');
 
         $container->setParameter('api.serializer.mapping.resource_types', $config['mapping']['resource_types']);
-        $container->setParameter('api.serializer.mapping.links.self', $config['mapping']['relations']['self']);
+        $container->setParameter('api.serializer.mapping.relations.self', $config['mapping']['relations']['self']);
     }
 }
