@@ -45,7 +45,11 @@ class UsersController extends Controller
 
     public function getUserSchoolAction(User $user)
     {
-        $representation = new ResourceRepresentation($user->getSchool());
+        $representation = new ResourceRepresentation(
+            $user->getSchool(),
+            'api_users_get_user_school',
+            ['user' => $user->getId()]
+        );
 
         return new Response(
             $this->serializer->serialize($representation, 'json'),
