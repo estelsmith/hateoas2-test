@@ -6,7 +6,3 @@ AppBundle\Entity\User:
             expose: true
         username:
             expose: true
-        password:
-            expose: false
-        roles:
-            expose: false
