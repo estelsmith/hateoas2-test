@@ -1,13 +1,28 @@
 parameters:
+    app.controller.schools.class: AppApiBundle\Controller\SchoolsController
     app.controller.users.class: AppApiBundle\Controller\UsersController
+    app.repository.school.class: AppBundle\Entity\Repository\SchoolRepository
     app.repository.user.class: AppBundle\Entity\Repository\UserRepository
 
 services:
+    app.controller.schools:
+        class: %app.controller.schools.class%
+        arguments:
+            - @jms_serializer
+            - @app.repository.school
+
     app.controller.users:
         class: %app.controller.users.class%
         arguments:
             - @jms_serializer
             - @app.repository.user
+
+    app.repository.school:
+        class: %app.repository.school.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:School
 
     app.repository.user:
         class: %app.repository.user.class%

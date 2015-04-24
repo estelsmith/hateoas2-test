@@ -1,2 +1,5 @@
+app_schools:
+    resource: routing/schools.yml
+
 app_users:
     resource: routing/users.yml

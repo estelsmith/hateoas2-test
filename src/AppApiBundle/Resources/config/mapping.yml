@@ -1,11 +1,19 @@
 mapping:
     resource_types:
         -
+            class: AppBundle\Entity\School
+            type: schools
+        -
             class: AppBundle\Entity\User
             type: users
 
     relations:
         self:
+            -
+                class: AppBundle\Entity\School
+                route: app_schools_get_one
+                parameters:
+                    school: expr(object.getId())
             -
                 class: AppBundle\Entity\User
                 route: app_users_get_one
