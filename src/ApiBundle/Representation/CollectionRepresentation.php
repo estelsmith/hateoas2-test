@@ -20,7 +20,7 @@ class CollectionRepresentation
     private $route;
 
     /**
-     * @param string $resources
+     * @param mixed $resources
      * @param string $route
      * @param array $parameters
      */
