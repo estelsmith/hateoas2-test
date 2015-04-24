@@ -1,9 +1,2 @@
-app_users_get_one:
-    path: /users/{user}
-    methods: [ GET ]
-    defaults: { _controller: app.controller.users:getOneAction }
-
-app_users_get_all:
-    path: /users/
-    methods: [ GET ]
-    defaults: { _controller: app.controller.users:getAllAction }
+app_users:
+    resource: routing/users.yml
