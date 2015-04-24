@@ -38,7 +38,7 @@ class UsersController extends Controller
 
         return new Response(
             $this->serializer->serialize($representation, 'json'),
-            200,
+            Response::HTTP_OK,
             ['Content-Type' => 'application/json']
         );
     }
@@ -52,7 +52,7 @@ class UsersController extends Controller
 
         return new Response(
             $this->serializer->serialize($users, 'json'),
-            200,
+            Response::HTTP_OK,
             ['Content-Type' => 'application/json']
         );
     }
