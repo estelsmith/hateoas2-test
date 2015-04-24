@@ -1,29 +1,5 @@
-api_users_get_user_school:
-    path:     /users/{user}/links/school
-    methods:   [ GET ]
-    defaults: { _controller: api.controller.users:getUserSchoolAction }
+users:
+    resource: routing/users.yml
 
-api_users_get_one:
-    path:     /users/{user}
-    methods:  [ GET ]
-    defaults: { _controller: api.controller.users:getUserAction }
-
-api_users_get_all:
-    path:     /users/
-    methods:  [ GET ]
-    defaults: { _controller: api.controller.users:getUsersAction }
-
-api_schools_get_one:
-    path:     /schools/{school}
-    methods:  [ GET ]
-    defaults: { _controller: api.controller.schools:getSchoolAction }
-
-api_schools_get_all:
-    path:     /schools/
-    methods:  [ GET ]
-    defaults: { _controller: api.controller.schools:getSchoolsAction }
-
-api_schools_get_school_users:
-    path:     /schools/{school}/links/users
-    methods:  [ GET ]
-    defaults: { _controller: api.controller.schools:getUsersAction }
+schools:
+    resource: routing/schools.yml

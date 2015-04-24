@@ -1,0 +1,20 @@
+################
+# Resource endpoints
+################
+api_schools_get_one:
+    path:     /schools/{school}
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getSchoolAction }
+
+api_schools_get_all:
+    path:     /schools/
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getSchoolsAction }
+
+################
+# Relationship endpoints
+################
+api_schools_get_school_users:
+    path:     /schools/{school}/links/users
+    methods:  [ GET ]
+    defaults: { _controller: api.controller.schools:getUsersAction }
