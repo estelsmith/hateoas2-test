@@ -30,6 +30,7 @@ class Configuration implements ConfigurationInterface
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->arrayNode('self')
+                                    ->useAttributeAsKey('class')
                                     ->prototype('array')
                                         ->children()
                                             ->scalarNode('class')->end()
